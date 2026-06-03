@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://s26j3pp7883r"]
+
+[ext_resource type="PackedScene" uid="uid://dpux7mjnmklvb" path="res://player/player.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://ciu2x1unigl66" path="res://level/checkboard.png" id="1_e2o6t"]
+[ext_resource type="Material" uid="uid://drq2g7fswuo6h" path="res://level/platform.tres" id="1_fc0e3"]
+[ext_resource type="Script" uid="uid://clqn5a5xgyuae" path="res://game.gd" id="1_ryrav"]
+[ext_resource type="Material" uid="uid://bkvypj76kde8" path="res://level/bridge.tres" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://df1drjpsdi86e" path="res://mob/spawner/mob_spawner.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="7_eow3j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eow3j"]
+albedo_color = Color(0.80661166, 0.76428026, 1.540184e-06, 1)
+albedo_texture = ExtResource("1_e2o6t")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5wjh"]
+albedo_color = Color(0.80661166, 0.76428026, 1.540184e-06, 1)
+albedo_texture = ExtResource("1_e2o6t")
+uv1_triplanar = true
+
+[sub_resource type="Environment" id="Environment_80nbo"]
+background_mode = 1
+background_color = Color(0.12156863, 0.6784314, 0.89411765, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.76862746, 0.6901961, 0.6431373, 1)
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.12941177, 0.28235295, 0.50980395, 1)
+fog_height = 0.5
+fog_height_density = 0.15
+
+[sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
+font_size = 56
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ryrav"]
+
+[node name="Game" type="Node3D" unique_id=1779883985]
+script = ExtResource("1_ryrav")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=83296169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5, 3.5)
+use_collision = true
+size = Vector3(10, 10, 17)
+material = ExtResource("1_fc0e3")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=158409344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5, -14)
+use_collision = true
+size = Vector3(10, 10, 10)
+material = ExtResource("1_fc0e3")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=538605508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -4.5, -19)
+use_collision = true
+size = Vector3(12, 9, 10)
+material = ExtResource("1_fc0e3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=985672724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -5.5, 3.5)
+use_collision = true
+size = Vector3(11, 11, 17)
+material = ExtResource("1_fc0e3")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=2040938453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -1, 0)
+use_collision = true
+size = Vector3(4, 2, 6)
+material = ExtResource("2_7jktm")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=1898383086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, -1, -16.5)
+use_collision = true
+size = Vector3(1.2, 2, 3)
+material = ExtResource("2_7jktm")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=1475514562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1, -7)
+use_collision = true
+size = Vector3(4, 2, 4)
+material = ExtResource("2_7jktm")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=229207011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -1, 0)
+use_collision = true
+size = Vector3(4, 2, 6)
+material = SubResource("StandardMaterial3D_eow3j")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=489332689]
+transform = Transform3D(0.966412, -0.25699785, 0, 0.25699785, 0.966412, 0, 0, 0, 1, 13.539624, -2.5241947, -20)
+use_collision = true
+size = Vector3(4, 2, 6)
+material = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=261235435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, -5.5, -10)
+use_collision = true
+size = Vector3(19, 11, 38)
+material = ExtResource("1_fc0e3")
+
+[node name="Player" parent="." unique_id=1489063653 instance=ExtResource("1_80nbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=561965678]
+transform = Transform3D(-0.006236046, 0.7303799, -0.6830127, -0.35978943, 0.63564557, 0.68301266, 0.9330127, 0.2500001, 0.258819, -14, 3, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1727612661]
+environment = SubResource("Environment_80nbo")
+
+[node name="MobSpawner" parent="." unique_id=1792720125 instance=ExtResource("6_ryrav")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33, 2, 1)
+
+[node name="MobSpawner2" parent="." unique_id=1029011002 instance=ExtResource("6_ryrav")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32, 2, -22)
+
+[node name="Label" type="Label" parent="." unique_id=1796459183]
+unique_name_in_owner = true
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 248.0
+offset_bottom = 113.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_7jktm")
+
+[node name="KillPlane" type="Area3D" parent="." unique_id=849268664]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane" unique_id=605343681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_ryrav")
+
+[node name="smoke_puff" parent="." unique_id=825498846 instance=ExtResource("7_eow3j")]
+
+[connection signal="mob_spawned" from="MobSpawner" to="." method="_on_mob_spawner_mob_spawned"]
+[connection signal="mob_spawned" from="MobSpawner2" to="." method="_on_mob_spawner_mob_spawned"]
+[connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]

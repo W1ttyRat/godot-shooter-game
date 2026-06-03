@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c4v86obtj4lhr"]
+
+[ext_resource type="PackedScene" uid="uid://cogsjenuvfsfy" path="res://mob/spawner/spawner_model.glb" id="1_bk78j"]
+[ext_resource type="Shader" uid="uid://cfnwyva3u4qeb" path="res://mob/spawner/spawner_halo.gdshader" id="2_lvlhh"]
+[ext_resource type="Material" uid="uid://bh1ego7bi1olb" path="res://mob/spawner/spawner_screen_material.tres" id="3_p6j4b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rug3p"]
+render_priority = 0
+shader = ExtResource("2_lvlhh")
+shader_parameter/color = Color(0.12622905, 0.84256005, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xi82"]
+albedo_color = Color(1, 0.39921376, 0.8798172, 1)
+metallic = 0.44
+roughness = 0.07
+rim_enabled = true
+
+[sub_resource type="Animation" id="Animation_lvlhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bk78j"]
+resource_name = "rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvlhh"]
+_data = {
+&"RESET": SubResource("Animation_lvlhh"),
+&"rotation": SubResource("Animation_bk78j")
+}
+
+[node name="spawner_model" unique_id=2044781390 instance=ExtResource("1_bk78j")]
+
+[node name="halo" parent="." index="0" unique_id=1658396656]
+material_override = SubResource("ShaderMaterial_rug3p")
+
+[node name="Body" parent="." index="1" unique_id=744489740]
+surface_material_override/0 = SubResource("StandardMaterial3D_2xi82")
+surface_material_override/1 = ExtResource("3_p6j4b")
+
+[node name="Top" parent="." index="2" unique_id=1529373461]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.78395706, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=164077323]
+libraries/ = SubResource("AnimationLibrary_lvlhh")
