@@ -6,10 +6,14 @@ var health = 3
 #var speed = 3.0
 var speed = randf_range(2.0, 4.0)
 
-@onready var bat_model = %bat_model
-@onready var timer: Timer = %Timer
+#@onready var bat_model = %bat_model
+@onready var bat_model = $bat_model
+#@onready var timer: Timer = %Timer
+@onready var timer: Timer = $Timer
 @onready var hurt_sound: AudioStreamPlayer3D = $HurtSound
 @onready var ko_sound: AudioStreamPlayer3D = $KOSound
+#@onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
+#@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
 @onready var player = get_node("/root/Game/Player")
 
@@ -55,3 +59,8 @@ func take_damage():
 func _on_timer_timeout() -> void:
 	queue_free()
 	died.emit()
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.has_method("player_take_damage"):
+		body.player_take_damage()

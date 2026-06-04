@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+signal current_health(new_health: int)
+
+var player_health = 5
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -13,6 +17,7 @@ func _unhandled_input(event):
 		)
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
 		
 		
 func _physics_process(delta):
@@ -52,6 +57,17 @@ func shoot_bullet():
 	%Timer.start()
 	%AudioStreamPlayer.play()
 	
+func player_take_damage():
+	if player_health == 0:
+		print("game over")
+		return
+		
+	player_health -= 1
+	
+	current_health.emit(player_health)
+	
+	
+	#print("player_Take_damage func")
 	
 	
 	

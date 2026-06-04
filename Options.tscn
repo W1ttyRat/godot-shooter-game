@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://mm26tbbpde60"]
+
+[ext_resource type="Script" uid="uid://lcpd4g7qlwg4" path="res://options.gd" id="1_r314q"]
+
+[node name="Menu" type="Control" unique_id=550355698]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.99
+script = ExtResource("1_r314q")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=534306206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -33.0
+offset_right = 33.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2103790968]
+layout_mode = 2
+
+[node name="Music" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1239415706]
+layout_mode = 2
+text = "Music on/off"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1107591128]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

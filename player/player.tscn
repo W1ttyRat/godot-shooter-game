@@ -12,6 +12,7 @@ collision_mask = 3
 script = ExtResource("1_rkbax")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1461500188]
+unique_name_in_owner = true
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=470887592]
@@ -22,7 +23,7 @@ transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D/gun_model" unique_id=144070817]
 unique_name_in_owner = true
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -0.0040664673, 0.038882434, 0.5189613)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -0.0040664673, 0.038882434, 0.38454854)
 
 [node name="Reticle" type="TextureRect" parent="." unique_id=1687103323]
 anchors_preset = 8
