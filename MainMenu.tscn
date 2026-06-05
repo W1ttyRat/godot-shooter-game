@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b2gpb7drttqn5" path="res://menu.gd" id="1_i26rj"]
 
 [node name="Menu" type="Control" unique_id=550355698]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,14 +34,17 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1270304322]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1277232365]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1992912515]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

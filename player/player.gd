@@ -16,8 +16,12 @@ func _unhandled_input(event):
 			%Camera3D.rotation_degrees.x, -80.0, 80.0
 		)
 	elif event.is_action_pressed("ui_cancel"):
+		var pause_menu = preload("res://PauseMenu.tscn")
+		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
+		get_tree().current_scene.add_child(pause_menu.instantiate())
+		
 		
 		
 func _physics_process(delta):

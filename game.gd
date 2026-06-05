@@ -35,7 +35,7 @@ func _on_kill_plane_body_entered(body: Node3D) -> void:
 
 
 
-# TODO: player health, mob damages upon contact with player. visual recoil for the gun. Start menu to start game, pressing esc pauses game. 
+# TODO: visual recoil for the gun. Start menu to start game, pressing esc pauses game. 
 
 
 func _on_player_current_health(new_health: int) -> void:
