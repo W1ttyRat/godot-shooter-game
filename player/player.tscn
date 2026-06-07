@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dpux7mjnmklvb"]
 
-[ext_resource type="PackedScene" uid="uid://og745omkbhkg" path="res://player/simple_gun/gun_model.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dbyqkte1epsbw" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://bs005nq2awbkh" path="res://player/reticle.png" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://weu6pdhhybdr" path="res://player/simple_gun/gun_model.tscn" id="3_qjkh3"]
 [ext_resource type="AudioStream" uid="uid://tq7t0mpwaht1" path="res://player/gun_shoot.wav" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
@@ -18,12 +18,12 @@ shape = SubResource("CapsuleShape3D_sh265")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=470887592]
 unique_name_in_owner = true
 
-[node name="gun_model" parent="Camera3D" unique_id=1243862475 instance=ExtResource("1_oul6g")]
-transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 0.50025773, -0.23044121, -0.70551926)
+[node name="gun_model2" parent="Camera3D" unique_id=1316712379 instance=ExtResource("3_qjkh3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, -0.23, -0.7)
 
-[node name="Marker3D" type="Marker3D" parent="Camera3D/gun_model" unique_id=144070817]
+[node name="Marker3D" type="Marker3D" parent="Camera3D/gun_model2" unique_id=144070817]
 unique_name_in_owner = true
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -0.0040664673, 0.038882434, 0.38454854)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0045819283, 0.038000017, -0.6859094)
 
 [node name="Reticle" type="TextureRect" parent="." unique_id=1687103323]
 anchors_preset = 8

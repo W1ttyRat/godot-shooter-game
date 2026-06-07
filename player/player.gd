@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 signal current_health(new_health: int)
 
-var player_health = 5
+#var player_health = 5
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -59,16 +59,23 @@ func shoot_bullet():
 	new_bullet.global_transform = %Marker3D.global_transform
 	
 	%Timer.start()
+	$Camera3D/gun_model2/AnimationPlayer.play("shoot")
 	%AudioStreamPlayer.play()
 	
 func player_take_damage():
-	if player_health == 0:
-		print("game over")
-		return
-		
-	player_health -= 1
+	GameState.player_lives -= 1
+	current_health.emit(GameState.player_lives)
 	
-	current_health.emit(player_health)
+	if GameState.player_lives <= 0:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
+		call_deferred("load_defeat_screen")
+	
+func load_defeat_screen():
+	get_tree().change_scene_to_file("res://DefeatMenu.tscn")
+	
+	
+	
 	
 	
 	#print("player_Take_damage func")

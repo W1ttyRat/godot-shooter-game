@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://bkvypj76kde8" path="res://level/bridge.tres" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://df1drjpsdi86e" path="res://mob/spawner/mob_spawner.tscn" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://bgsq3vb2c8x4w" path="res://stopwatch.gd" id="8_j5wjh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eow3j"]
 albedo_color = Color(0.80661166, 0.76428026, 1.540184e-06, 1)
@@ -38,6 +39,9 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 56
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ryrav"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5wjh"]
+font_size = 56
 
 [node name="Game" type="Node3D" unique_id=1779883985]
 script = ExtResource("1_ryrav")
@@ -129,9 +133,9 @@ label_settings = SubResource("LabelSettings_7jktm")
 
 [node name="Lives" type="Label" parent="." unique_id=186750522]
 offset_left = 1684.0
-offset_top = 30.0
+offset_top = 36.0
 offset_right = 1882.0
-offset_bottom = 107.0
+offset_bottom = 113.0
 text = "Lives: 5"
 label_settings = SubResource("LabelSettings_eow3j")
 
@@ -142,6 +146,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = SubResource("WorldBoundaryShape3D_ryrav")
 
 [node name="smoke_puff" parent="." unique_id=825498846 instance=ExtResource("7_eow3j")]
+
+[node name="Stopwatch" type="Label" parent="." unique_id=652531]
+offset_left = 909.0
+offset_top = 36.0
+offset_right = 1025.9996
+offset_bottom = 97.0
+text = "00:00"
+label_settings = SubResource("LabelSettings_j5wjh")
+script = ExtResource("8_j5wjh")
+
+[node name="Timer" type="Timer" parent="Stopwatch" unique_id=1905857371]
+wait_time = 0.1
 
 [connection signal="current_health" from="Player" to="." method="_on_player_current_health"]
 [connection signal="mob_spawned" from="MobSpawner" to="." method="_on_mob_spawner_mob_spawned"]

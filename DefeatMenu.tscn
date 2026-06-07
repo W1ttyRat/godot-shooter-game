@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dyymlm5uwuwm0"]
+
+[ext_resource type="Script" uid="uid://dflbf50ud55xp" path="res://defeat_menu.gd" id="1_5eu8g"]
+
+[node name="Control" type="Control" unique_id=1509807402]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5eu8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1392824306]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1778166591]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="MarginContainer/VBoxContainer" unique_id=322770742]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.99999994, 0.039762065, 0.14615151, 1)
+theme_override_font_sizes/font_size = 96
+text = "You have died!"
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1773363918]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42987165, 0.60550886, 1.92523e-07, 1)
+theme_override_font_sizes/font_size = 96
+text = "Score: 0"
+
+[node name="PlayAgain" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1855616303]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Play Again!"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=117391950]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayAgain" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_button_2_pressed"]
