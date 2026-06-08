@@ -1,14 +1,14 @@
 extends Area3D
 
-const SPEED = 10.0
-const RANGE = 40.0
+var bullet_speed: float = GameState.bullet_speed
+var bullet_range: float = GameState.bullet_range
 
 var travelled_distance = 0.0
 
 func _physics_process(delta):
-	position += -transform.basis.z * SPEED * delta
-	travelled_distance += SPEED * delta
-	if travelled_distance > RANGE:
+	position += -transform.basis.z * bullet_speed * delta
+	travelled_distance += bullet_speed * delta
+	if travelled_distance > bullet_range:
 		queue_free()
 
 

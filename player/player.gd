@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 signal current_health(new_health: int)
 
-#var player_health = 5
+@onready var timer: Timer = %Timer
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -25,7 +25,7 @@ func _unhandled_input(event):
 		
 		
 func _physics_process(delta):
-	const SPEED = 5.5 # m/s
+	var move_speed: float = GameState.move_speed
 	
 	var input_direction_2D = Input.get_vector(
 		"move_left", "move_right", "move_forward", "move_back"
@@ -37,8 +37,8 @@ func _physics_process(delta):
 	
 	var direction = transform.basis * input_direction_3D
 	
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
+	velocity.x = direction.x * move_speed
+	velocity.z = direction.z * move_speed
 	
 	velocity.y -= 20.0 * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -53,10 +53,20 @@ func _physics_process(delta):
 
 func shoot_bullet():
 	const BULLET = preload("res://Bullet3D.tscn")
-	var new_bullet = BULLET.instantiate()
-	%Marker3D.add_child(new_bullet)
 	
-	new_bullet.global_transform = %Marker3D.global_transform
+	var count: int = max(1, GameState.bullet_count)
+	var spread: float = 0.04
+	
+	for i in range(count):
+		var new_bullet = BULLET.instantiate()
+		
+		var middle: float = (count - 1) / 2.0
+		var angle: float = (i - middle) * spread
+		
+		new_bullet.global_transform = %Marker3D.global_transform.rotated(Vector3.UP, angle)
+		%Marker3D.add_child(new_bullet)
+		
+	timer.wait_time = GameState.attack_speed
 	
 	%Timer.start()
 	$Camera3D/gun_model2/AnimationPlayer.play("shoot")

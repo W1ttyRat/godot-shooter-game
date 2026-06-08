@@ -36,11 +36,20 @@ layout_mode = 2
 [node name="Music" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1239415706]
 process_mode = 3
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 64
 text = "Music on/off"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1414270282]
+layout_mode = 2
+value = 50.0
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1107591128]
 process_mode = 3
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Back"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Music" to="." method="_on_music_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

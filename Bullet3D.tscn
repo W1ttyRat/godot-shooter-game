@@ -8,7 +8,7 @@ radius = 0.08609859
 
 [node name="Bullet3D" type="Area3D" unique_id=1704866711]
 top_level = true
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_51lra")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1318448497]

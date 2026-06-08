@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://f0v2an73n5c8"]
+
+[ext_resource type="Script" uid="uid://bkpbwrfttlduc" path="res://upgrade_menu.gd" id="1_ntgkq"]
+
+[node name="Control" type="Control" unique_id=121788112]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ntgkq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=669110224]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2054981491]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MarginContainer/HBoxContainer" unique_id=59599285]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Upgrade 1
+
++10% atk speed"
+
+[node name="Upgrade2" type="Button" parent="MarginContainer/HBoxContainer" unique_id=148775425]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Upgrade 2
++10% move speed"
+
+[node name="Upgrade3" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1417275156]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Upgrade 3
++1 bullet"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Upgrade1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Upgrade2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Upgrade3" to="." method="_on_upgrade_3_pressed"]

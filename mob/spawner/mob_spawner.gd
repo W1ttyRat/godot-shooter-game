@@ -8,7 +8,6 @@ signal mob_spawned(mob)
 @onready var timer: Timer = %Timer
 
 
-
 func _on_timer_timeout() -> void:
 	var new_mob = mob_to_spawn.instantiate()
 	
@@ -17,3 +16,5 @@ func _on_timer_timeout() -> void:
 	new_mob.global_position = marker_3d.global_position
 	
 	mob_spawned.emit(new_mob)
+	
+	timer.wait_time = GameState.mob_spawn_timer
