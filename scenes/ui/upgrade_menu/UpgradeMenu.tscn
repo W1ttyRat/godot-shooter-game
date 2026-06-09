@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f0v2an73n5c8"]
 
-[ext_resource type="Script" uid="uid://bkpbwrfttlduc" path="res://upgrade_menu.gd" id="1_ntgkq"]
+[ext_resource type="Script" uid="uid://bkpbwrfttlduc" path="res://scenes/ui/upgrade_menu/upgrade_menu.gd" id="1_ntgkq"]
 
 [node name="Control" type="Control" unique_id=121788112]
 process_mode = 2

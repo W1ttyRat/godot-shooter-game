@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dyymlm5uwuwm0"]
 
-[ext_resource type="Script" uid="uid://dflbf50ud55xp" path="res://defeat_menu.gd" id="1_5eu8g"]
+[ext_resource type="Script" uid="uid://dflbf50ud55xp" path="res://scenes/ui/defeat_menu/defeat_menu.gd" id="1_5eu8g"]
 
 [node name="Control" type="Control" unique_id=1509807402]
 process_mode = 2

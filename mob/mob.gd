@@ -8,8 +8,7 @@ var speed = randf_range(2.0, 4.0)
 var is_knocked = false
 
 
-#@onready var bat_model = %bat_model
-@onready var bat_model = $bat_model
+@onready var bat_model: Node3D = %bat_model
 #@onready var timer: Timer = %Timer
 @onready var timer: Timer = $DeathTimer
 @onready var knockbackTimer: Timer = $KnockbackTimer

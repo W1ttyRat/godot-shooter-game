@@ -1,0 +1,4 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bfafx53gxjx3o"]
+
+[resource]
+bus/0/bypass_fx = true

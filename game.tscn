@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://df1drjpsdi86e" path="res://mob/spawner/mob_spawner.tscn" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="7_eow3j"]
 [ext_resource type="Script" uid="uid://bgsq3vb2c8x4w" path="res://stopwatch.gd" id="8_j5wjh"]
-[ext_resource type="AudioStream" uid="uid://bh7rkkdtjft8g" path="res://Music/new_audio_stream_mp_3.tres" id="9_vef74"]
+[ext_resource type="AudioStream" uid="uid://bh7rkkdtjft8g" path="res://Music/BackgroundMusic.tres" id="9_vef74"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eow3j"]
 albedo_color = Color(0.80661166, 0.76428026, 1.540184e-06, 1)

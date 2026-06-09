@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 signal current_health(new_health: int)
 
-@onready var timer: Timer = %Timer
+@onready var shoot_cooldown: Timer = %ShootCooldown
+@onready var iframe: Timer = %Iframe
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -10,17 +11,17 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * 0.5
-		# $Camera3D/gun_model = %gun_model
 		%Camera3D.rotation_degrees.x -= event.relative.y * 0.5
 		%Camera3D.rotation_degrees.x = clamp(
 			%Camera3D.rotation_degrees.x, -80.0, 80.0
 		)
 	elif event.is_action_pressed("ui_cancel"):
-		var pause_menu = preload("res://PauseMenu.tscn")
+		var pause_menu = preload("res://scenes/ui/pause_menu/PauseMenu.tscn")
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
 		get_tree().current_scene.add_child(pause_menu.instantiate())
+		
 		
 		
 		
@@ -48,7 +49,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_pressed("shoot") and %Timer.is_stopped():
+	if Input.is_action_pressed("shoot") and shoot_cooldown.is_stopped():
 		shoot_bullet()
 
 func shoot_bullet():
@@ -66,13 +67,18 @@ func shoot_bullet():
 		new_bullet.global_transform = %Marker3D.global_transform.rotated(Vector3.UP, angle)
 		%Marker3D.add_child(new_bullet)
 		
-	timer.wait_time = GameState.attack_speed
+	shoot_cooldown.wait_time = GameState.attack_speed
 	
-	%Timer.start()
+	shoot_cooldown.start()
 	$Camera3D/gun_model2/AnimationPlayer.play("shoot")
-	%AudioStreamPlayer.play()
+	%GunShoot.play()
 	
 func player_take_damage():
+	if !iframe.is_stopped():
+		return
+	
+	%PlayerDamage.play()
+	
 	GameState.player_lives -= 1
 	current_health.emit(GameState.player_lives)
 	
@@ -80,9 +86,11 @@ func player_take_damage():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().paused = true
 		call_deferred("load_defeat_screen")
+		
+	iframe.start()
 	
 func load_defeat_screen():
-	get_tree().change_scene_to_file("res://DefeatMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/defeat_menu/DefeatMenu.tscn")
 	
 	
 	

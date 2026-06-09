@@ -7,7 +7,7 @@ func _ready() -> void:
 	h_slider.value = GameState.music_volume
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu/MainMenu.tscn")
 
 
 func _on_music_pressed() -> void:

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://diwthnfq3ya74"]
+
+[ext_resource type="Script" uid="uid://cf6erscxi8lv0" path="res://scenes/ui/pause_menu/pause_menu.gd" id="1_nov15"]
+
+[node name="Control" type="Control" unique_id=406860058]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nov15")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2032743779]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -33.0
+offset_right = 33.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=648458254]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer" unique_id=987191303]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Continue"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1982570735]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Quit"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=2010235353]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 104.0
+offset_bottom = 104.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2" unique_id=573143733]
+layout_mode = 2
+color = Color(0.25275356, 0.25275356, 0.25275356, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" unique_id=1021103417]
+layout_mode = 2
+
+[node name="AttackSpeed" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=25207220]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "atksped"
+
+[node name="MoveSpeed" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=1655730510]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="BulletCount" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=987226945]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="BulletSpeed" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=1902396156]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="BulletRange" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=423106781]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="MobHealth" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=1371686402]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
