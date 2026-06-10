@@ -58,9 +58,11 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="." unique_id=1242722733]
 stream = ExtResource("3_p7bu6")
+volume_db = -10.0
 
 [node name="KOSound" type="AudioStreamPlayer3D" parent="." unique_id=1187207900]
 stream = ExtResource("4_ll53k")
+volume_db = -15.0
 
 [node name="smoke_puff" parent="." unique_id=825498846 instance=ExtResource("5_20ooa")]
 

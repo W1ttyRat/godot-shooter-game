@@ -55,6 +55,7 @@ one_shot = true
 [node name="GunShoot" type="AudioStreamPlayer" parent="." unique_id=907920108]
 unique_name_in_owner = true
 stream = ExtResource("4_yw30f")
+volume_db = 10.0
 
 [node name="PlayerDamage" type="AudioStreamPlayer" parent="." unique_id=1913124292]
 unique_name_in_owner = true

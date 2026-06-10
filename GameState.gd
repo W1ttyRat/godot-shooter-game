@@ -8,6 +8,9 @@ var player_lives: int = 5
 var mob_spawn_timer: float = 5.0
 var mob_health: int = 1
 
+var boss_health: int = 10
+var boss_speed: float = 2.0
+
 var attack_speed: float = 0.4
 var move_speed: float = 5.5
 var bullet_count: int = 1
